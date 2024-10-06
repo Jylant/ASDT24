@@ -1,3 +1,10 @@
+"""
+This program is for Advanced Software Development Techniques course at Oulu University of Applied Sciences.
+I used GitHub Copilot a little to speed things up, but I wrote the code myself, aside from a couple of 
+formatting suggestions. I also used the Python documentation and Stack Overflow for reference and I understand
+what I have written. I have tested the program and it works as intended.
+"""
+
 import threading
 import time
 import tkinter as tk
@@ -29,13 +36,15 @@ def dink():
     winsound.Beep(10000,50)
 
 def fanfare_e():
-    winsound.Beep(400,10000)
+    winsound.Beep(50,10000)
 
 def fanfare_k():
-    winsound.Beep(1000,10000) 
+    winsound.Beep(000,10000) 
 
 def splash():
     winsound.Beep(800, 100)   # Slightly lower pitch (800 Hz for 100 ms)
+
+
 ### Visuals ###
 
 def create_island_with_pool(canvas):
@@ -128,7 +137,7 @@ def move_monkey(canvas, monkey_marker, dx:int=0, dy:int=0):
 
 ### Actions ###
 
-#movement logic
+# movement logic
 """
 The following functions move ernesti, kernesti and monkeys around the island.
 The functions move each character one step at a time, and schedule the next step
@@ -219,7 +228,7 @@ def send_monkey_to_ditch(canvas, monkey, ditch_y: int):
     move()
 
 
-#commands
+# commands
 def find_a_monkey(canvas, fetcher="ernesti"):
     """
     This function's main purpose is to reset the global variable is_logical to False
@@ -230,7 +239,6 @@ def find_a_monkey(canvas, fetcher="ernesti"):
     go_get_a_monkey(canvas, fetcher)
 
 
-
 def go_get_a_monkey(canvas,fetcher="ernesti", dig_too=False):
     global ernesti
     global kernesti
@@ -239,7 +247,6 @@ def go_get_a_monkey(canvas,fetcher="ernesti", dig_too=False):
     e_ditch_y_is_logical:int=10
     k_ditch_y_is_logical:int=119
     
-
     def delay_until_dig(canvas, monkey, fetcher):
         if monkey["state"] == "moving":
             time.sleep(0.05)
@@ -270,7 +277,7 @@ def go_get_a_monkey(canvas,fetcher="ernesti", dig_too=False):
         if dig_too:
             delay_until_dig(canvas, monkey, fetcher)
 
-    #fetch with logic
+    # fetch with logic
     def ernesti_fetch_monkey_is_logical():
         nonlocal ditch_y
         nonlocal e_ditch_y_is_logical
@@ -366,6 +373,7 @@ def go_get_a_monkey(canvas,fetcher="ernesti", dig_too=False):
     else:
         fetch_thread = threading.Thread(target=fetch_monkey)    
     fetch_thread.start()
+
 
 def dig(canvas, monkey, digspot=109):
     dig_spot=digspot
