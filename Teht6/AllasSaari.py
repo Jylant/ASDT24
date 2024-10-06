@@ -39,7 +39,7 @@ def fanfare_e():
     winsound.Beep(50,10000)
 
 def fanfare_k():
-    winsound.Beep(000,10000) 
+    winsound.Beep(1000,10000) 
 
 def splash():
     winsound.Beep(800, 100)   # Slightly lower pitch (800 Hz for 100 ms)
